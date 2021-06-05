@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -ex
+
+rm -rf occlum_workspace
+mkdir occlum_workspace && cd occlum_workspace
+occlum init
+cp -r ../templates/ image/
+cp ../build/squery image/bin
+
+cp image/lib/libc.so image/opt/occlum/glibc/lib/
+
+cp ../openssl_src/openssl-1.1.1k/libssl.so* image/opt/occlum/glibc/lib/
+cp ../openssl_src/openssl-1.1.1k/libcrypto.so* image/opt/occlum/glibc/lib/
+cp ../sqlite_src/sqlite-autoconf-3330000/.libs/libsqlite3.so* image/opt/occlum/glibc/lib/
+
+cp /opt/occlum/glibc/lib/libdl.so.2 image/opt/occlum/glibc/lib/
+
+cp /opt/occlum/glibc/lib/libdl.so.2 image/opt/occlum/glibc/lib/
+
+occlum build
+occlum run /bin/squery

@@ -18,16 +18,14 @@
 
 void handlerRequest(const httplib::Request& req, httplib::Response& rsp)
 {
-    //接收json
     if (req.has_param("sqltext")) {
-        cout<<req.get_param_value("sqltext")<<endl; 
+        std::cout<<req.get_param_value("sqltext")<<std::endl; 
     }
 
-    //返回json
     nlohmann::json jsdic;
     jsdic["status"] = 200;
 
-    vector<std::string> svec;
+    std::vector<std::string> svec;
     std::string str = "dululu";
     for (int i = 0; i < 5; i++) {
         str += "lulu";
@@ -35,7 +33,7 @@ void handlerRequest(const httplib::Request& req, httplib::Response& rsp)
     } 
 
     jsdic["result"] = svec;
-    std::string s = j.dump();
+    std::string s = jsdic.dump();
     //cout<<s<<endl;
     rsp.set_content(s, "application/json"); 
 }
@@ -72,7 +70,6 @@ int main()
 
     int ret = svr.set_mount_point("/", "../templates");
    
-    //处理查询请求
     svr.Post("/search", handlerRequest);
     
     svr.listen("0.0.0.0", 8088);

@@ -1,6 +1,4 @@
-var host = "http://172.0.2.1:8088";
-
-//authentication认证
+var host = "http://172.17.0.2:8088";
 (function(){
     $.ajax({
         method: "post",
@@ -18,7 +16,6 @@ var host = "http://172.0.2.1:8088";
 
 })();
 
-//输入sql
 $(document).on("click",".icon-search", function(){
 	var sqltext = $("#input-sql").val().trim();
     var msg = {"sqltext":sqltext};

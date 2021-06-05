@@ -5,7 +5,7 @@ set -ex
 SHELL_FOLDER=$(cd "$(dirname "$0")";pwd)
 
 
-export CXX=occlum-gcc
+export CXX=occlum-g++
 export CC=occlum-gcc
 
 cd sqlite_src/sqlite-autoconf-3330000
