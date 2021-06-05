@@ -1,0 +1,164 @@
+/* line 5, D:/Program Files/Ruby30-x64/lib/ruby/gems/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, D:/Program Files/Ruby30-x64/lib/ruby/gems/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, D:/Program Files/Ruby30-x64/lib/ruby/gems/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, D:/Program Files/Ruby30-x64/lib/ruby/gems/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, D:/Program Files/Ruby30-x64/lib/ruby/gems/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, D:/Program Files/Ruby30-x64/lib/ruby/gems/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, D:/Program Files/Ruby30-x64/lib/ruby/gems/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, D:/Program Files/Ruby30-x64/lib/ruby/gems/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, D:/Program Files/Ruby30-x64/lib/ruby/gems/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/index.scss */
+body {
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #ffffef;
+}
+
+/* line 9, ../sass/index.scss */
+a {
+  color: #666666;
+  text-decoration: none;
+}
+
+/* line 13, ../sass/index.scss */
+a:hover {
+  color: #000000;
+  cursor: normal;
+}
+
+/* line 18, ../sass/index.scss */
+.header .head-topic {
+  display: inline-block;
+}
+/* line 20, ../sass/index.scss */
+.header .head-topic .topic-name {
+  font-size: 32px;
+  font-weight: bolder;
+}
+/* line 24, ../sass/index.scss */
+.header .head-topic a {
+  margin-left: 1em;
+  cursor: pointer;
+}
+
+/* line 30, ../sass/index.scss */
+.containner {
+  font-family: verdana;
+  margin-top: 50px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+/* line 37, ../sass/index.scss */
+.containner .div-input {
+  display: flex;
+  width: 800px;
+  line-height: 1.8em;
+  margin: 0.8em auto;
+}
+/* line 43, ../sass/index.scss */
+.containner .div-input input {
+  flex: 2.0;
+  font-family: verdana;
+  text-indent: 0.4em;
+  text-align: left;
+  border-radius: 2px;
+  border: 1px solid #a3a3a3;
+}
+/* line 51, ../sass/index.scss */
+.containner .div-input .icon-search {
+  flex: 0.5;
+  margin-left: 1em;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2px;
+  border: 1px solid #a3a3a3;
+}
+/* line 59, ../sass/index.scss */
+.containner .div-input .icon-search:hover {
+  transition: 1s;
+  background: #3d3d3d;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* line 68, ../sass/index.scss */
+.footer .div-msg {
+  margin-bottom: 0.4em;
+  margin-top: 2em;
+  height: 4em;
+  font-family: impact;
+  display: flex;
+}
+/* line 74, ../sass/index.scss */
+.footer .div-msg .div-div-msg {
+  color: gray;
+  font-size: 1.3em;
+}
+/* line 78, ../sass/index.scss */
+.footer .div-msg div {
+  flex: 1;
+  text-align: center;
+}
+/* line 81, ../sass/index.scss */
+.footer .div-msg div span {
+  margin-right: 1em;
+}

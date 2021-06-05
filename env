@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -ex
+
+SHELL_FOLDER=$(cd "$(dirname "$0")";pwd)
+
+project=squery
+
+docker run -it --rm --name=$(whoami)-${project} --device /dev/isgx \
+    -v ${SHELL_FOLDER}:/root/${project} \
+    -w /root/${project} \
+    occlum/occlum:0.22.0-ubuntu18.04 bash
