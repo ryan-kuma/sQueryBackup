@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'cancle';
+  src: url('../font/cancle.eot');
+  src: url('../font/cancle.eot#iefix') format('embedded-opentype'),
+       url('../font/cancle.woff') format('woff'),
+       url('../font/cancle.ttf') format('truetype'),
+       url('../font/cancle.svg#cancle') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.icon,[class^="icon-"],[class^="icon-"]:before,[class*=" icon-"]:before {
+  font-family: "cancle";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  font-smoothing: antialiased;
+  line-height: 1em;
+}
+
+.icon-cancel:before { content: '\e811'; }
+.icon-minus-1:before{ content: '\e812'; }
+.icon-right-outline:before{ content: '\e803' }
+.icon-left-outline:before{ content: '\e813' }
+.icon-right:before{ content: '\e814' }
+.icon-left:before{ content: '\e815' }
+.icon-spin6:before{ content: '\e839' }
+.icon-spin2:before{ content: '\e831' }
+.icon-pencil:before{ content: '\e804' }
+.icon-code:before{ content: '\f121' }
+.icon-circle-empty:before{ content: '\f10c' }
+.icon-circle-thin:before{ content:'\f1db' }
+.icon-link:before{ content:'\e802' }
+
+
+
+.animate-spin {
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+  display: inline-block;
+}
+@-webkit-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}

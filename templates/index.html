@@ -2,38 +2,424 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>index</title>
+	<title>normal index</title>
+	<link rel="stylesheet" href="css/font.css">
 	<link rel="stylesheet" href="sgxFrontProject/stylesheets/index.css">
 </head>
 <body>
 	<header>
 		<div class="header">
 			<div class="head-topic">
-				<span class="topic-name">SGX DATAQUERY</span>
+				<span class="topic-name">NORMAL DATAQUERY</span>
 			</div>
 		</div>
 	</header>
 	<div class="containner">
-		<div class="div-input">
-			<input type="text" name="input-sql" id="input-sql">
-			<div class="icon-search">
-				search
+		<div class="div-search-config">
+			<!-- 精确查询 -->
+			<div class="div-accurate-select" >
+				<div class="div-search-table">
+					<div class="input-table-name">
+						<input type="text" placeholder="table name">
+						<i class="icon-link"></i>
+					</div>
+					<div class="div-columns">
+						<!-- <div class="checked">
+							<span class="column-name">column1</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;">
+							</span>
+						</div>
+						<div>
+						    <span class="column-name">SNO</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div>
+						<span class="column-name">column3</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div>
+						<span class="column-name">column4</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div class="checked">
+						<span class="column-name">column5</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div class="checked">
+						<span class="column-name">column6</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div>
+						<span class="column-name">column7</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div>
+						<span class="column-name">column8</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div>
+						<span class="column-name">column9</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div>
+						<span class="column-name">column10</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div>
+						<span class="column-name">column11</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>	
+						<div class="checked">
+						<span class="column-name">column38</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div>
+						<span class="column-name">column92</span>
+							<span class="column-equal" style="display: none;">=</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>				 -->
+					</div>
+					<div class="btn-search">
+						search
+					</div>
+				</div>
+			</div>
+			<!-- 复合查询 -->
+			<div class="div-complex-select" style="display: none;">	
+				<div class="div-div-complex-select">
+					<div class="div-table1">
+						<div class="input-table-name">
+							<input type="text" placeholder="table1 name">
+							<i class="icon-link"></i>
+						</div>
+						<div class="div-columns">
+							<!-- <div class="checked">
+								<span class="column-name">column1</span>
+							</div>	 -->
+						</div>
+					</div>		
+					<div class="div-table2">
+						<div class="input-table-name">
+							<input type="text" placeholder="table2 name">
+							<i class="icon-link"></i>
+						</div>
+						<div class="div-columns">
+							<!-- <div class="checked">
+								<span class="column-name">column1</span>
+							</div>	 -->
+						</div>
+					</div>
+					<div class="input-div-conditions">
+						<span class="select-condition-describe">Map Columns:</span>
+						 <input type="text" name="select-condition" id="select-condition">
+					</div>
+				</div>	
+
+				<div class="btn-search">
+					search
+				</div>
+			</div>
+			<!-- 范围查询 -->
+			<div class="div-range-select" style="display: none;">
+				<div class="div-search-table">
+					<div class="input-table-name">
+						<input type="text" placeholder="table name">
+						<i class="icon-link"></i>
+					</div>
+					<div class="div-columns">
+					<!--
+						<div>
+							<div id="div-div-columns" class="checked">
+								<span class="column-name">column1</span>
+							</div>							
+							<div class="div-column-choice" >
+								<div name="div-not-in-choice">
+									<span>not in (</span> 							
+									<span class="column-value1" contenteditable="true" ></span>
+									<span>)</span>
+								</div>
+								<div name="div-in-choice">
+									<span>in (</span> 							
+									<span class="column-value1" contenteditable="true" ></span>
+									<span>)</span>
+								</div>
+								<div name="div-range-choice">
+									<span>(</span> 							
+									<span class="column-value1" contenteditable="true" ></span>
+									<span>) ~ (</span>
+									<span class="column-value2" contenteditable="true" ></span>
+									<span>) </span>
+								</div>
+							</div>
+						</div>
+
+					 	<div>
+							<div id="div-div-columns">
+								<span class="column-name">column1</span>
+							</div>							
+							<div class="div-column-choice">
+								<div>
+									<span>not in (</span> 							
+									<span class="column-value1" contenteditable="true" ></span>
+									<span>)</span>
+								</div>
+								<div>
+									<span>in (</span> 							
+									<span class="column-value1" contenteditable="true" ></span>
+									<span>)</span>
+								</div>
+								<div>
+									<span>between</span> 							
+									<span class="column-value1" contenteditable="true" ></span>
+									<span>and</span>
+									<span class="column-value1" contenteditable="true" ></span>
+								</div>
+							</div>
+						</div> -->
+					</div>
+					<div class="btn-search">
+						search
+					</div>
+				</div>
+			</div>
+			<!-- 聚集查询 -->
+			<div class="div-aggregate-select" style="display: none;">
+				<div class="div-search-table">
+					<div class="input-table-name">
+						<input type="text" placeholder="table name">
+						<i class="icon-link"></i>
+					</div>
+					<div class="div-columns">				
+						<!-- <div>
+							<div id="div-div-columns" class="checked">
+								<span class="column-name">column1</span>
+							</div>							
+							<div class="div-column-choice" >
+								<div name="div-count-choice">
+									<span>COUNT</span> 	
+								</div>
+								<div name="div-sum-choice">
+									<span>SUM</span> 	
+								</div>
+								<div name="div-avg-choice">
+									<span>AVG</span> 							
+								</div>
+								<div name="div-max-choice">
+									<span>MAX</span> 							
+								</div>
+								<div name="div-min-choice">
+									<span>MIN</span> 							
+								</div>
+							</div>
+						</div> -->
+					</div>
+					<div class="btn-search">
+						search
+					</div>
+				</div>
+			</div>
+			<!-- 模糊查询 -->
+			<div class="div-fuzzy-select" style="display: none;" >
+				<div class="div-search-table">
+					<div class="input-table-name">
+						<input type="text" placeholder="table name">
+						<i class="icon-link"></i>
+					</div>
+					<div class="div-columns">
+						<!-- <div class="checked">
+							<span class="column-name">column1</span>
+							<span class="column-equal" style="display: none;">like</span>
+							<span class="column-value" contenteditable="true" style="display: none;">
+							</span>
+						</div>	
+						<div class="checked">
+						<span class="column-name">column38</span>
+							<span class="column-equal" style="display: none;">like</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>
+						<div>
+						<span class="column-name">column92</span>
+							<span class="column-equal" style="display: none;">like</span>
+							<span class="column-value" contenteditable="true" style="display: none;"></span>
+						</div>				 -->
+					</div>
+					<div class="btn-search">
+						search
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="line">
+			<span data-descr="jingque">---------------</span>
+			<i class="icon-circle-thin check-it" id="accurate-select-config"></i>
+			<span>-----------------------</span>
+			<i class="icon-circle-thin" id="complex-select-config"></i>
+			<span>-----------------------</span>
+			<i class="icon-circle-thin" id="range-select-config"></i>
+			<span>-----------------------</span>
+			<i class="icon-circle-thin" id="aggregate-select-config"></i>
+			<span>-----------------------</span>
+			<i class="icon-circle-thin" id="fuzzy-select-config"></i>
+			<span>--------------</span>
+		</div>
+
+		<div class="div-data">	
+			<table class="table-data">
+				<!-- <tr class="colname-data">
+					<th>nam1</th>
+					<th>namefffffffffffffffffff2</th>
+					<th>name3</th>
+				</tr>
+				<tr class="row-data">
+					<td title="mysqffffffffffffffffffffl to oracle">mysqffffffffffffffffffffl to oracle</td>
+					<td>start</td>
+					<td>hr ddddffffffffffffffffffffffffffffffffddsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td>mysql toffffffffffffffffffffffffffff oracle</td>
+					<td>staffffffffffffffffffffffffffffffffffffffffrt</td>
+					<td title="ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd">hr ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td title="mysqffffffffffffffffffffl to oracle">mysqffffffffffffffffffffl to oracle</td>
+					<td>start</td>
+					<td>hr ddddffffffffffffffffffffffffffffffffddsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td>mysql toffffffffffffffffffffffffffff oracle</td>
+					<td>staffffffffffffffffffffffffffffffffffffffffrt</td>
+					<td title="ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd">hr ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td title="mysqffffffffffffffffffffl to oracle">mysqffffffffffffffffffffl to oracle</td>
+					<td>start</td>
+					<td>hr ddddffffffffffffffffffffffffffffffffddsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td>mysql toffffffffffffffffffffffffffff oracle</td>
+					<td>staffffffffffffffffffffffffffffffffffffffffrt</td>
+					<td title="ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd">hr ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td title="mysqffffffffffffffffffffl to oracle">mysqffffffffffffffffffffl to oracle</td>
+					<td>start</td>
+					<td>hr ddddffffffffffffffffffffffffffffffffddsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td>mysql toffffffffffffffffffffffffffff oracle</td>
+					<td>staffffffffffffffffffffffffffffffffffffffffrt</td>
+					<td title="ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd">hr ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td title="mysqffffffffffffffffffffl to oracle">mysqffffffffffffffffffffl to oracle</td>
+					<td>start</td>
+					<td>hr ddddffffffffffffffffffffffffffffffffddsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td>mysql toffffffffffffffffffffffffffff oracle</td>
+					<td>staffffffffffffffffffffffffffffffffffffffffrt</td>
+					<td title="ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd">hr ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td title="mysqffffffffffffffffffffl to oracle">mysqffffffffffffffffffffl to oracle</td>
+					<td>start</td>
+					<td>hr ddddffffffffffffffffffffffffffffffffddsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td>mysql toffffffffffffffffffffffffffff oracle</td>
+					<td>staffffffffffffffffffffffffffffffffffffffffrt</td>
+					<td title="ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd">hr ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td title="mysqffffffffffffffffffffl to oracle">mysqffffffffffffffffffffl to oracle</td>
+					<td>start</td>
+					<td>hr ddddffffffffffffffffffffffffffffffffddsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td>mysql toffffffffffffffffffffffffffff oracle</td>
+					<td>staffffffffffffffffffffffffffffffffffffffffrt</td>
+					<td title="ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd">hr ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td title="mysqffffffffffffffffffffl to oracle">mysqffffffffffffffffffffl to oracle</td>
+					<td>start</td>
+					<td>hr ddddffffffffffffffffffffffffffffffffddsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td>mysql toffffffffffffffffffffffffffff oracle</td>
+					<td>staffffffffffffffffffffffffffffffffffffffffrt</td>
+					<td title="ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd">hr ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td title="mysqffffffffffffffffffffl to oracle">mysqffffffffffffffffffffl to oracle</td>
+					<td>start</td>
+					<td>hr ddddffffffffffffffffffffffffffffffffddsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td>mysql toffffffffffffffffffffffffffff oracle</td>
+					<td>staffffffffffffffffffffffffffffffffffffffffrt</td>
+					<td title="ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd">hr ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td title="mysqffffffffffffffffffffl to oracle">mysqffffffffffffffffffffl to oracle</td>
+					<td>start</td>
+					<td>hr ddddffffffffffffffffffffffffffffffffddsfsd</td>
+				</tr>
+				<tr class="row-data">
+					<td>mysql toffffffffffffffffffffffffffff oracle</td>
+					<td>staffffffffffffffffffffffffffffffffffffffffrt</td>
+					<td title="ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd">hr ddddddfffffffffffffffffffffffffffffffffffffffffffffffsfsd</td>
+				</tr> -->
+			</table>	
+			<div class="div-limit-pages">
+				<!-- <div class="div-div-countpages">
+					共有<span class="span-div-limit-count">156</span>条记录
+				</div>				
+				<div class="div-div-showpages">
+					<span class="span-div-limit-prevpage"><前页</span>
+					<span class="span-page">1</span>
+					<span class="span-page">2</span>
+					<span class="breakprev">...</span>
+
+					<span class="span-page">3</span>
+					<span class="span-page">4</span>
+					<span class="span-page">5</span>
+					<span class="span-page">6</span>
+					<span class="span-page">7</span>
+					<span class="this-page">8</span>
+					<span class="span-page">9</span>
+					
+					<span class="breaknext">...</span>
+					<span class="span-page">150</span>
+					<span class="span-page">151</span>
+					<span class="span-div-limit-nextpage">后页></span>
+				<div> -->
 			</div>
 		</div>
 	</div>
 	<div class="footer">
-		<!-- <div>Topic：</div> -->
-		<!-- <div>Tansformation：</div> -->
-		<div class="div-msg">
-			<div class="div-div-msg">
-				Message：
-			</div>
-			<div>
-				<span class="span-message"></span>
+		<div class="div-time">
+			<div class="div-div-time">
+				Sign Check：<span class="div-span-signcheck">success</span> Time：<span class="div-span-time">0</span>ms
 			</div>
 		</div>
 	</div>
 </body>
 <script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/crypto-js.js"></script>
+<script src="js/jsencrypt.js"></script>
 <script src="js/index.js"></script>
 </html>

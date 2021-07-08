@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* line 5, D:/Program Files/Ruby30-x64/lib/ruby/gems/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -101,64 +102,990 @@ a:hover {
 /* line 30, ../sass/index.scss */
 .containner {
   font-family: verdana;
-  margin-top: 50px;
-  height: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 85%;
+  margin-top: 35px;
+  min-height: 600px;
+  margin-bottom: 6em;
+  justify-content: center;
+  width: 100%;
+  border-top: 1px solid #bfbfbf;
 }
-/* line 37, ../sass/index.scss */
-.containner .div-input {
+/* line 38, ../sass/index.scss */
+.containner .div-search-config {
+  height: 100px;
+  overflow: visible;
+}
+/* line 42, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select {
+  margin-top: 20px;
+}
+/* line 44, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table {
   display: flex;
-  width: 800px;
-  line-height: 1.8em;
-  margin: 0.8em auto;
+  align-items: center;
+  padding-right: 5em;
+  padding-left: 2em;
 }
-/* line 43, ../sass/index.scss */
-.containner .div-input input {
-  flex: 2.0;
-  font-family: verdana;
-  text-indent: 0.4em;
-  text-align: left;
-  border-radius: 2px;
+/* line 49, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .input-table-name {
+  flex: 1;
+  display: flex;
+  min-width: 16em;
+  align-items: center;
+}
+/* line 54, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .input-table-name input {
+  flex: 10;
+  margin-left: 1.1em;
+  text-indent: 1em;
+  line-height: 2em;
+  border-radius: 50px;
   border: 1px solid #a3a3a3;
 }
-/* line 51, ../sass/index.scss */
-.containner .div-input .icon-search {
-  flex: 0.5;
-  margin-left: 1em;
+/* line 62, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .input-table-name input:focus {
+  outline: 0;
+  border: 1px solid #97bbe4 !important;
+  box-shadow: 0px 0px 5px #6FA1D9 !important;
+}
+/* line 67, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .input-table-name i {
+  flex: 1;
+  margin-left: 0.4em;
+  color: #953b39;
+  opacity: 0.6;
+}
+/* line 73, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .input-table-name i:hover {
+  color: #702c2b;
+  cursor: pointer;
+  opacity: 1;
+}
+/* line 79, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .div-columns {
+  width: 95%;
+  margin-left: 20px;
+  flex: 10;
+}
+/* line 84, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .div-columns div {
+  min-width: 3em;
   text-align: center;
-  font-weight: bold;
-  border-radius: 2px;
-  border: 1px solid #a3a3a3;
+  line-height: 1.6em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-top: 0.4em;
+  margin-right: 0.5em;
+  border-radius: 25px / 7px;
+  box-shadow: 0px 0px 5px #6FA1D9;
+  font-family: georgia;
+  display: inline-block;
 }
-/* line 59, ../sass/index.scss */
-.containner .div-input .icon-search:hover {
-  transition: 1s;
-  background: #3d3d3d;
-  color: #ffffff;
+/* line 96, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .div-columns div span {
+  outline: none;
+}
+/* line 100, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .div-columns div:hover {
+  cursor: default;
+}
+/* line 105, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .div-columns .checked {
+  background-color: #3f3f3f;
+  color: #fff;
+}
+/* line 110, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .div-columns .checked:active {
+  background-color: #ffffef;
+  color: #000;
+}
+/* line 115, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .btn-search {
+  flex: 1;
+  min-width: 130px;
+  line-height: 1.8em;
+  text-align: center;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  background-color: #d9534f;
+  color: #fff;
+  font-family: Helvetica Neue;
+  font-weight: 600;
+}
+/* line 131, ../sass/index.scss */
+.containner .div-search-config .div-accurate-select .div-search-table .btn-search:hover {
+  background-color: #c9302c;
   cursor: pointer;
 }
-
-/* line 68, ../sass/index.scss */
-.footer .div-msg {
-  margin-bottom: 0.4em;
-  margin-top: 2em;
-  height: 4em;
-  font-family: impact;
+/* line 137, ../sass/index.scss */
+.containner .div-search-config .div-complex-select {
+  margin-top: 20px;
   display: flex;
+  align-items: center;
 }
-/* line 74, ../sass/index.scss */
-.footer .div-msg .div-div-msg {
+/* line 141, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select {
+  flex: 10;
+}
+/* line 143, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 {
+  display: flex;
+  align-items: center;
+}
+/* line 146, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .input-table-name {
+  flex: 1;
+  display: flex;
+  min-width: 16em;
+  align-items: center;
+}
+/* line 151, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .input-table-name input {
+  flex: 10;
+  margin-left: 1.1em;
+  text-indent: 1em;
+  line-height: 2em;
+  border-radius: 50px;
+  border: 1px solid #a3a3a3;
+}
+/* line 159, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .input-table-name input:focus {
+  outline: 0;
+  border: 1px solid #97bbe4 !important;
+  box-shadow: 0px 0px 5px #6FA1D9 !important;
+}
+/* line 164, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .input-table-name i {
+  flex: 1;
+  margin-left: 0.4em;
+  color: #953b39;
+  opacity: 0.6;
+}
+/* line 170, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .input-table-name i:hover {
+  color: #702c2b;
+  cursor: pointer;
+  opacity: 1;
+}
+/* line 176, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .div-columns {
+  width: 95%;
+  margin-left: 20px;
+  flex: 10;
+}
+/* line 181, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .div-columns div {
+  min-width: 3em;
+  text-align: center;
+  line-height: 1.6em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-top: 0.4em;
+  margin-right: 0.5em;
+  border-radius: 25px / 7px;
+  box-shadow: 0px 0px 5px #6FA1D9;
+  font-family: georgia;
+  display: inline-block;
+}
+/* line 193, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .div-columns div span {
+  outline: none;
+}
+/* line 197, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .div-columns div:hover {
+  cursor: default;
+}
+/* line 202, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .div-columns .checked {
+  background-color: #3f3f3f;
+  color: #fff;
+}
+/* line 207, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table1 .div-columns .checked:active {
+  background-color: #ffffef;
+  color: #000;
+}
+/* line 213, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5em;
+}
+/* line 217, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .input-table-name {
+  flex: 1;
+  display: flex;
+  min-width: 16em;
+  align-items: center;
+}
+/* line 222, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .input-table-name input {
+  flex: 10;
+  margin-left: 1.1em;
+  text-indent: 1em;
+  line-height: 2em;
+  border-radius: 50px;
+  border: 1px solid #a3a3a3;
+}
+/* line 230, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .input-table-name input:focus {
+  outline: 0;
+  border: 1px solid #97bbe4 !important;
+  box-shadow: 0px 0px 5px #6FA1D9 !important;
+}
+/* line 235, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .input-table-name i {
+  flex: 1;
+  margin-left: 0.4em;
+  color: #953b39;
+  opacity: 0.6;
+}
+/* line 241, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .input-table-name i:hover {
+  color: #702c2b;
+  cursor: pointer;
+  opacity: 1;
+}
+/* line 247, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .div-columns {
+  width: 95%;
+  margin-left: 20px;
+  flex: 10;
+}
+/* line 252, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .div-columns div {
+  min-width: 3em;
+  text-align: center;
+  line-height: 1.6em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-top: 0.4em;
+  margin-right: 0.5em;
+  border-radius: 25px / 7px;
+  box-shadow: 0px 0px 5px #6FA1D9;
+  font-family: georgia;
+  display: inline-block;
+}
+/* line 264, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .div-columns div span {
+  outline: none;
+}
+/* line 268, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .div-columns div:hover {
+  cursor: default;
+}
+/* line 273, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .div-columns .checked {
+  background-color: #3f3f3f;
+  color: #fff;
+}
+/* line 278, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .div-table2 .div-columns .checked:active {
+  background-color: #ffffef;
+  color: #000;
+}
+/* line 284, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .input-div-conditions {
+  width: 550px;
+  margin: 0.5em auto;
+}
+/* line 287, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .input-div-conditions .select-condition-describe {
+  font-size: 1em;
+}
+/* line 290, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .input-div-conditions input {
+  margin-left: 1em;
+  text-indent: 1em;
+  line-height: 2em;
+  border-radius: 50px;
+  min-width: 350px;
+  border: 1px solid #a3a3a3;
+}
+/* line 298, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .div-div-complex-select .input-div-conditions input:focus {
+  outline: 0;
+  border: 1px solid #97bbe4 !important;
+  box-shadow: 0px 0px 5px #6FA1D9 !important;
+}
+/* line 305, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .btn-search {
+  flex: 1;
+  min-width: 130px;
+  line-height: 1.8em;
+  text-align: center;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  background-color: #d9534f;
+  color: #fff;
+  font-family: Helvetica Neue;
+  font-weight: 600;
+}
+/* line 321, ../sass/index.scss */
+.containner .div-search-config .div-complex-select .btn-search:hover {
+  background-color: #c9302c;
+  cursor: pointer;
+}
+/* line 326, ../sass/index.scss */
+.containner .div-search-config .div-range-select {
+  margin-top: 20px;
+}
+/* line 328, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table {
+  display: flex;
+  align-items: center;
+}
+/* line 331, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .input-table-name {
+  flex: 1;
+  display: flex;
+  min-width: 16em;
+  align-items: center;
+}
+/* line 336, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .input-table-name input {
+  flex: 10;
+  margin-left: 1.1em;
+  text-indent: 1em;
+  line-height: 2em;
+  border-radius: 50px;
+  border: 1px solid #a3a3a3;
+}
+/* line 344, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .input-table-name input:focus {
+  outline: 0;
+  border: 1px solid #97bbe4 !important;
+  box-shadow: 0px 0px 5px #6FA1D9 !important;
+}
+/* line 349, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .input-table-name i {
+  flex: 1;
+  margin-left: 0.4em;
+  color: #953b39;
+  opacity: 0.6;
+}
+/* line 355, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .input-table-name i:hover {
+  color: #702c2b;
+  cursor: pointer;
+  opacity: 1;
+}
+/* line 361, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns {
+  width: 95%;
+  margin-left: 20px;
+  flex: 10;
+}
+/* line 366, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns div {
+  display: inline-block;
+  position: relative;
+}
+/* line 369, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns div #div-div-columns {
+  min-width: 3em;
+  text-align: center;
+  line-height: 1.6em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-top: 0.4em;
+  margin-left: 0.5em;
+  border-radius: 25px / 7px;
+  box-shadow: 0px 0px 5px #6FA1D9;
+  font-family: georgia;
+  cursor: default;
+  display: inline-block;
+}
+/* line 382, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns div #div-div-columns span {
+  outline: none;
+}
+/* line 387, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns div .div-column-choice {
+  display: none;
+  width: fit-content;
+  z-index: 9999;
+}
+/* line 391, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns div .div-column-choice div {
+  background-color: #ffffef;
+  color: #000;
+  min-width: 130px;
+  border: 1px solid #000;
+  text-align: center;
+  margin-left: 0.5em;
+  font-family: georgia;
+  line-height: 1.6em;
+}
+/* line 402, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns div .div-column-choice :hover {
+  background-color: #bfbfbf;
+}
+/* line 405, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns div .div-column-choice .choice-checked {
+  background-color: #bfbfbf;
+}
+/* line 410, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns div .column-value1 {
+  cursor: text;
+  padding: 0 2.5px;
+}
+/* line 414, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns div .column-value2 {
+  cursor: text;
+  padding: 0 2.5px;
+}
+/* line 419, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns :hover .div-column-choice {
+  display: block;
+  position: absolute;
+  cursor: default;
+}
+/* line 425, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns .checked {
+  background-color: #3f3f3f;
+  color: #fff;
+}
+/* line 430, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .div-columns .checked:active {
+  background-color: #ffffef;
+  color: #000;
+}
+/* line 435, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .btn-search {
+  flex: 1;
+  min-width: 130px;
+  line-height: 1.8em;
+  text-align: center;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  background-color: #d9534f;
+  color: #fff;
+  font-family: Helvetica Neue;
+  font-weight: 600;
+}
+/* line 451, ../sass/index.scss */
+.containner .div-search-config .div-range-select .div-search-table .btn-search:hover {
+  background-color: #c9302c;
+  cursor: pointer;
+}
+/* line 457, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select {
+  margin-top: 20px;
+}
+/* line 459, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table {
+  display: flex;
+  align-items: center;
+}
+/* line 462, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .input-table-name {
+  flex: 1;
+  display: flex;
+  min-width: 16em;
+  align-items: center;
+}
+/* line 467, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .input-table-name input {
+  flex: 10;
+  margin-left: 1.1em;
+  text-indent: 1em;
+  line-height: 2em;
+  border-radius: 50px;
+  border: 1px solid #a3a3a3;
+}
+/* line 475, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .input-table-name input:focus {
+  outline: 0;
+  border: 1px solid #97bbe4 !important;
+  box-shadow: 0px 0px 5px #6FA1D9 !important;
+}
+/* line 480, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .input-table-name i {
+  flex: 1;
+  margin-left: 0.4em;
+  color: #953b39;
+  opacity: 0.6;
+}
+/* line 486, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .input-table-name i:hover {
+  color: #702c2b;
+  cursor: pointer;
+  opacity: 1;
+}
+/* line 492, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns {
+  width: 95%;
+  margin-left: 20px;
+  flex: 10;
+}
+/* line 497, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns div {
+  display: inline-block;
+  position: relative;
+}
+/* line 500, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns div #div-div-columns {
+  min-width: 3em;
+  text-align: center;
+  line-height: 1.6em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-top: 0.4em;
+  margin-left: 0.5em;
+  border-radius: 25px / 7px;
+  box-shadow: 0px 0px 5px #6FA1D9;
+  font-family: georgia;
+  cursor: default;
+  display: inline-block;
+}
+/* line 513, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns div #div-div-columns span {
+  outline: none;
+}
+/* line 518, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns div .div-column-choice {
+  display: none;
+}
+/* line 520, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns div .div-column-choice div {
+  background-color: #ffffef;
+  color: #000;
+  border: 1px solid #000;
+  text-align: center;
+  margin-left: 0.3em;
+  font-family: georgia;
+  min-width: 100px;
+  line-height: 1.2em;
+}
+/* line 531, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns div .div-column-choice :hover {
+  background-color: #bfbfbf;
+}
+/* line 534, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns div .div-column-choice .choice-checked {
+  background-color: #bfbfbf;
+}
+/* line 538, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns :hover .div-column-choice {
+  display: block;
+  position: absolute;
+  cursor: default;
+}
+/* line 544, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns .checked {
+  background-color: #3f3f3f;
+  color: #fff;
+}
+/* line 549, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .div-columns .checked:active {
+  background-color: #ffffef;
+  color: #000;
+}
+/* line 554, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .btn-search {
+  flex: 1;
+  min-width: 130px;
+  line-height: 1.8em;
+  text-align: center;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  background-color: #d9534f;
+  color: #fff;
+  font-family: Helvetica Neue;
+  font-weight: 600;
+}
+/* line 570, ../sass/index.scss */
+.containner .div-search-config .div-aggregate-select .div-search-table .btn-search:hover {
+  background-color: #c9302c;
+  cursor: pointer;
+}
+/* line 576, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select {
+  margin-top: 20px;
+}
+/* line 578, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table {
+  display: flex;
+  align-items: center;
+}
+/* line 581, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .input-table-name {
+  flex: 1;
+  display: flex;
+  min-width: 16em;
+  align-items: center;
+}
+/* line 586, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .input-table-name input {
+  flex: 10;
+  margin-left: 1.1em;
+  text-indent: 1em;
+  line-height: 2em;
+  border-radius: 50px;
+  border: 1px solid #a3a3a3;
+}
+/* line 594, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .input-table-name input:focus {
+  outline: 0;
+  border: 1px solid #97bbe4 !important;
+  box-shadow: 0px 0px 5px #6FA1D9 !important;
+}
+/* line 599, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .input-table-name i {
+  flex: 1;
+  margin-left: 0.4em;
+  color: #953b39;
+  opacity: 0.6;
+}
+/* line 605, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .input-table-name i:hover {
+  color: #702c2b;
+  cursor: pointer;
+  opacity: 1;
+}
+/* line 611, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .div-columns {
+  width: 95%;
+  margin-left: 20px;
+  flex: 10;
+}
+/* line 616, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .div-columns div {
+  min-width: 3em;
+  text-align: center;
+  line-height: 1.6em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-top: 0.4em;
+  margin-right: 0.5em;
+  border-radius: 25px / 7px;
+  box-shadow: 0px 0px 5px #6FA1D9;
+  font-family: georgia;
+  display: inline-block;
+}
+/* line 628, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .div-columns div span {
+  outline: none;
+}
+/* line 632, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .div-columns div:hover {
+  cursor: default;
+}
+/* line 637, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .div-columns .checked {
+  background-color: #3f3f3f;
+  color: #fff;
+}
+/* line 642, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .div-columns .checked:active {
+  background-color: #ffffef;
+  color: #000;
+}
+/* line 647, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .btn-search {
+  flex: 1;
+  min-width: 130px;
+  line-height: 1.8em;
+  text-align: center;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  background-color: #d9534f;
+  color: #fff;
+  font-family: Helvetica Neue;
+  font-weight: 600;
+}
+/* line 663, ../sass/index.scss */
+.containner .div-search-config .div-fuzzy-select .div-search-table .btn-search:hover {
+  background-color: #c9302c;
+  cursor: pointer;
+}
+/* line 671, ../sass/index.scss */
+.containner .line {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  height: 1em;
+  flex-wrap: nowrap;
+}
+/* line 677, ../sass/index.scss */
+.containner .line span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 5em;
+}
+/* line 682, ../sass/index.scss */
+.containner .line i {
+  border-radius: 50%;
+  border: 0;
+  width: 1em;
+  height: 1em;
+}
+/* line 688, ../sass/index.scss */
+.containner .line i:hover {
+  background-color: #000;
+  box-shadow: 0px 0px 7px #6FA1D9;
+  text-overflow: inherit;
+  overflow: visible;
+  white-space: pre-line;
+  cursor: pointer;
+}
+/* line 698, ../sass/index.scss */
+.containner .line .check-it {
+  background-color: #000;
+}
+/* line 703, ../sass/index.scss */
+.containner .line #accurate-select-config:hover::after {
+  content: "等值查询";
+  display: inline-block;
+  padding: 10px 14px;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+/* line 714, ../sass/index.scss */
+.containner .line #complex-select-config:hover::after {
+  content: "连接查询";
+  display: inline-block;
+  padding: 10px 14px;
+  width: 65px;
+  flex-wrap: nowrap;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+/* line 725, ../sass/index.scss */
+.containner .line #range-select-config:hover::after {
+  content: "范围查询";
+  display: inline-block;
+  padding: 10px 14px;
+  width: 65px;
+  flex-wrap: nowrap;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+/* line 736, ../sass/index.scss */
+.containner .line #aggregate-select-config:hover::after {
+  content: "聚合查询";
+  display: inline-block;
+  padding: 10px 14px;
+  width: 65px;
+  flex-wrap: nowrap;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+/* line 747, ../sass/index.scss */
+.containner .line #fuzzy-select-config:hover::after {
+  content: "模糊查询";
+  display: inline-block;
+  padding: 10px 14px;
+  width: 65px;
+  flex-wrap: nowrap;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+/* line 759, ../sass/index.scss */
+.containner .div-data {
+  margin-top: 3em;
+}
+/* line 761, ../sass/index.scss */
+.containner .div-data .table-data {
+  table-layout: fixed;
+  width: 100%;
+}
+/* line 764, ../sass/index.scss */
+.containner .div-data .table-data .colname-data {
+  border-bottom: 1px solid #222222;
+  line-height: 1.6em;
+  overflow: hidden;
+}
+/* line 768, ../sass/index.scss */
+.containner .div-data .table-data .colname-data th {
+  max-width: 5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: verdana;
+  font-weight: bold;
+  text-indent: 1em;
+  text-align: center;
+  line-height: 1.6em;
+}
+/* line 780, ../sass/index.scss */
+.containner .div-data .table-data .row-data {
+  border-bottom: 1px solid #f1f1f1;
+  overflow: hidden;
+  line-height: 1.6em;
+}
+/* line 784, ../sass/index.scss */
+.containner .div-data .table-data .row-data td {
+  line-height: 1.5em;
+  max-width: 5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: verdana;
+  text-align: center;
+  text-indent: 1em;
+}
+/* line 794, ../sass/index.scss */
+.containner .div-data .table-data .row-data td:hover::after {
+  content: attr(title);
+  display: inline-block;
+  padding: 10px 14px;
+  white-space: nowrap;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  position: absolute;
+  top: -50px;
+  left: -30px;
+}
+/* line 807, ../sass/index.scss */
+.containner .div-data .div-limit-pages {
+  line-height: 150%;
+  font: 1em Arial, Helvetica, sans-serif;
+  margin-top: 1em;
+}
+/* line 811, ../sass/index.scss */
+.containner .div-data .div-limit-pages .div-div-countpages {
+  width: fit-content;
+  display: inline-block;
+}
+/* line 815, ../sass/index.scss */
+.containner .div-data .div-limit-pages .div-div-showpages {
+  display: inline-block;
+  text-align: center;
+  width: 88%;
+}
+/* line 820, ../sass/index.scss */
+.containner .div-data .div-limit-pages .div-div-showpages span {
+  padding: 0 4px;
+  margin: 4px;
+  cursor: pointer;
+}
+/* line 825, ../sass/index.scss */
+.containner .div-data .div-limit-pages .div-div-showpages .breakprev, .containner .div-data .div-limit-pages .div-div-showpages .breaknext {
+  cursor: text;
+}
+/* line 828, ../sass/index.scss */
+.containner .div-data .div-limit-pages .div-div-showpages .breakprev {
+  display: none;
+}
+/* line 831, ../sass/index.scss */
+.containner .div-data .div-limit-pages .div-div-showpages .span-page:hover, .containner .div-data .div-limit-pages .div-div-showpages .span-div-limit-prevpage:hover, .containner .div-data .div-limit-pages .div-div-showpages .span-div-limit-nextpage:hover {
+  color: #fff;
+  background: #a1c4fd;
+}
+/* line 835, ../sass/index.scss */
+.containner .div-data .div-limit-pages .div-div-showpages .this-page {
+  color: #fff;
+  background: #fcb69f;
+  cursor: text;
+}
+
+/* line 846, ../sass/index.scss */
+.footer {
+  position: fixed;
+  height: 2.5em;
+  bottom: 0px;
+  width: 100%;
+  z-index: 9999;
+  clear: both;
+}
+/* line 853, ../sass/index.scss */
+.footer .div-time {
+  font-family: impact;
+  text-align: center;
+}
+/* line 858, ../sass/index.scss */
+.footer .div-time .div-div-time {
   color: gray;
   font-size: 1.3em;
 }
-/* line 78, ../sass/index.scss */
-.footer .div-msg div {
-  flex: 1;
+/* line 862, ../sass/index.scss */
+.footer .div-time .div-span-time {
+  margin-right: 1em;
+}
+/* line 866, ../sass/index.scss */
+.footer .div-time .div-span-signcheck {
+  margin-right: 3em;
+}
+
+/* line 872, ../sass/index.scss */
+.tipsConfirm {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99999;
+}
+/* line 879, ../sass/index.scss */
+.tipsConfirm .shadow {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+/* line 886, ../sass/index.scss */
+.tipsConfirm .content {
+  position: absolute;
+  font-family: Century Gothic;
+  margin: auto;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  height: 180px;
+  min-height: 180px;
+  background: #ffffef;
+  overflow: hidden;
+  border-radius: 5px;
+}
+/* line 900, ../sass/index.scss */
+.tipsConfirm .content .tipname {
+  cursor: default;
+  line-height: 1.5em;
+  font-size: 20px;
+  text-align: left;
+  padding: 5px;
+  padding-left: 10px;
+}
+/* line 908, ../sass/index.scss */
+.tipsConfirm .content .msg {
+  font-family: Futura;
+  font-size: 16px;
+  line-height: 1.4em;
+  text-align: center;
+  padding: 20px;
+  width: 280px;
+  height: 4em;
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 920, ../sass/index.scss */
+.tipsConfirm .content .btn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   text-align: center;
 }
-/* line 81, ../sass/index.scss */
-.footer .div-msg div span {
-  margin-right: 1em;
+/* line 927, ../sass/index.scss */
+.tipsConfirm .content .btn .ok, .tipsConfirm .content .btn .cancel {
+  float: left;
+  line-height: 38px;
+  width: 50%;
+  cursor: pointer;
+}
+/* line 932, ../sass/index.scss */
+.tipsConfirm .content .btn .ok:hover, .tipsConfirm .content .btn .cancel:hover {
+  background: #c1afff;
+  color: #ffffef;
 }

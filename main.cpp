@@ -20,18 +20,25 @@
 
 #include "json.hpp"
 
-#define KEY_LENGTH 2048 //密钥长度
+#define KEY_LENGTH 1024 //密钥长度
 
 static  std::string private_key = ""; //私钥
 static  std::string public_key = ""; //公钥
 
+//base64格式封装
+char *Base64Encode(const char *input, int len);
+//base64格式解封装
+char *Base64Decode(const char *input, int len);
+
+//对数据进行加密
+std::string rsa_pri_encrypt(std::string data);
+//生成公私钥对
+void generate_rsa_keypair();
+
 //返回认证数据
 void handleAuthentication(const httplib::Request& req, httplib::Response& rsp);
-
-std::string rsa_pri_encrypt(std::string data);
-
 //处理查询表下所有列名的请求
-void  handlerShowColumns(const httplib::Request& req, httplib::Response& rsp);
+void handlerShowColumns(const httplib::Request& req, httplib::Response& rsp);
 //具体使用sqlite3处理查询表下所有列名的请求
 int sqlHandleShowColumns(void *data, int args_num, char **argv, char **azColName);
 
@@ -77,39 +84,8 @@ int main()
 void handleAuthentication(const httplib::Request& req, httplib::Response& rsp)
 {
     nlohmann::json jsdic;
-    RSA *keypair = RSA_generate_key(KEY_LENGTH, RSA_3, NULL, NULL);
 
-    char *pri_key = NULL;
-    char *pub_key = NULL;
-
-    BIO *pri = BIO_new(BIO_s_mem());
-    BIO *pub = BIO_new(BIO_s_mem());
-
-
-    PEM_write_bio_RSAPrivateKey(pri, keypair, NULL, NULL, 0, NULL, NULL);
-    PEM_write_bio_RSAPublicKey(pub, keypair);
-
-    size_t pri_len = BIO_pending(pri);
-    size_t pub_len = BIO_pending(pub);
-
-    pri_key = (char*) malloc(pri_len +1);
-    pub_key = (char*) malloc(pub_len +1);
-
-    BIO_read(pri, pri_key, pri_len);
-    BIO_read(pub, pub_key, pub_len);
-
-    pri_key[pri_len] = '\0';
-    pub_key[pub_len] = '\0';
-
-    //设置全局变量
-    private_key = pri_key;
-    public_key = pub_key;
-
-    RSA_free(keypair);
-    BIO_free_all(pub);
-    BIO_free_all(pri);
-    free(pri_key); 
-    free(pub_key);
+    generate_rsa_keypair();
 
     jsdic["status"] = 200;
     jsdic["publickey"] = public_key;
@@ -121,6 +97,7 @@ void handleAuthentication(const httplib::Request& req, httplib::Response& rsp)
 void  handlerShowColumns(const httplib::Request& req, httplib::Response& rsp)
 {
     nlohmann::json jsdic;
+    nlohmann::json sendJsdic;
     
     std::string tableName = "";
     if (req.has_param("tablename")) {
@@ -150,11 +127,14 @@ void  handlerShowColumns(const httplib::Request& req, httplib::Response& rsp)
 
     std::string data = jsdic.dump();
     std::string encryptedData = rsa_pri_encrypt(data);
-    jsdic["data"] = data;
-    jsdic["encrypteddata"] = encryptedData;
-    
-    std::string s = jsdic.dump();
 
+    sendJsdic["status"] = jsdic["status"];
+    sendJsdic["data"] = data;
+    sendJsdic["encrydata"] = encryptedData;
+    
+    std::string s = sendJsdic.dump();
+    std::cout<<s<<std::endl;
+    
     rsp.set_content(s, "application/json");
 }
 
@@ -174,6 +154,7 @@ int sqlHandleShowColumns(void *data, int args_num, char **argv, char **azColName
 void handleAccurateSelect(const httplib::Request& req, httplib::Response& rsp)
 {
     nlohmann::json jsdic;
+    nlohmann::json sendJsdic;
     jsdic["status"] = 320;  //异常状态
     std::string tableName = "";
     std::string strColNames = "";
@@ -233,7 +214,7 @@ void handleAccurateSelect(const httplib::Request& req, httplib::Response& rsp)
         
         std::cout<<SQL_STMT<<std::endl;
         ret = proxy->Exec(databaseName, SQL_STMT,  sqlHandleQuery, psvec);
-        if (psvec->size() == 0) {
+        if (count == "0") {
             jsdic["status"] = 310;  //empty data
         } else {
             std::vector<std::string> resvec(psvec->begin(), psvec->end());
@@ -249,17 +230,20 @@ void handleAccurateSelect(const httplib::Request& req, httplib::Response& rsp)
 
     std::string data = jsdic.dump();
     std::string encryptedData = rsa_pri_encrypt(data);
-    jsdic["data"] = data;
-    jsdic["encrypteddata"] = encryptedData;
 
-    std::string s =jsdic.dump();
-//    std::cout<<"stding="<<s<<std::endl;
+    sendJsdic["status"] = jsdic["status"];
+    sendJsdic["data"] = data;
+    sendJsdic["encrydata"] = encryptedData;
+    
+    std::string s = sendJsdic.dump();
+    std::cout<<"stding="<<s<<std::endl;
     rsp.set_content(s, "application/json");
 }
 
 void handleComplexSelect(const httplib::Request& req, httplib::Response& rsp) 
 {
     nlohmann::json jsdic;
+    nlohmann::json sendJsdic;
     jsdic["status"] = 320; //异常状态
     std::string table1Name = "";
     std::string table2Name = "";
@@ -312,7 +296,7 @@ void handleComplexSelect(const httplib::Request& req, httplib::Response& rsp)
         
         std::cout<<SQL_STMT<<std::endl;
         ret = proxy->Exec(databaseName, SQL_STMT,  sqlHandleQuery, psvec);
-        if (psvec->size() == 0) {
+        if (count == "0") {
             jsdic["status"] = 310;  //empty data
         } else {
             std::vector<std::string> resvec(psvec->begin(), psvec->end());
@@ -327,16 +311,20 @@ void handleComplexSelect(const httplib::Request& req, httplib::Response& rsp)
 
     std::string data = jsdic.dump();
     std::string encryptedData = rsa_pri_encrypt(data);
-    jsdic["data"] = data;
-    jsdic["encrypteddata"] = encryptedData;
 
-    std::string s =jsdic.dump();
+    sendJsdic["status"] = jsdic["status"];
+    sendJsdic["data"] = data;
+    sendJsdic["encrydata"] = encryptedData;
+    
+    std::string s = sendJsdic.dump();
+//    std::cout<<"stding="<<s<<std::endl;
     rsp.set_content(s, "application/json");
 }
 
 void handleAggregateSelect(const httplib::Request& req, httplib::Response& rsp)
 {
     nlohmann::json jsdic;
+    nlohmann::json sendJsdic;
     jsdic["status"] = 320; //异常状态
     std::string tableName = "";
     std::string strColNames = "";
@@ -369,7 +357,7 @@ void handleAggregateSelect(const httplib::Request& req, httplib::Response& rsp)
         
         std::cout<<SQL_STMT<<std::endl;
         bool ret = proxy->Exec(databaseName, SQL_STMT,  sqlHandleQuery, psvec);
-        if (psvec->size() == 0) {
+        if (psvec->size() <= 1) {
             jsdic["status"] = 310;  //empty data
         } else {
             std::vector<std::string> resvec(psvec->begin(), psvec->end());
@@ -382,16 +370,20 @@ void handleAggregateSelect(const httplib::Request& req, httplib::Response& rsp)
 
     std::string data = jsdic.dump();
     std::string encryptedData = rsa_pri_encrypt(data);
-    jsdic["data"] = data;
-    jsdic["encrypteddata"] = encryptedData;
 
-    std::string s =jsdic.dump();
+    sendJsdic["status"] = jsdic["status"];
+    sendJsdic["data"] = data;
+    sendJsdic["encrydata"] = encryptedData;
+    
+    std::string s = sendJsdic.dump();
+//    std::cout<<"stding="<<s<<std::endl;
     rsp.set_content(s, "application/json");
 }
 
 void handlePageSelect(const httplib::Request& req, httplib::Response& rsp)
 {
     nlohmann::json jsdic;
+    nlohmann::json sendJsdic;
     jsdic["status"] = 320;
     std::string sqlStmt = "";
     std::string startquery = "0";
@@ -416,7 +408,7 @@ void handlePageSelect(const httplib::Request& req, httplib::Response& rsp)
     
     std::cout<<"sqlstmt="<<SQL_STMT<<std::endl;
     bool ret = proxy->Exec(databaseName, SQL_STMT,  sqlHandleQuery, psvec);
-    if (psvec->size() == 0) {
+    if (psvec->size() <= 1) {
         jsdic["status"] = 310;  //empty data
     } else {
         std::vector<std::string> resvec(psvec->begin(), psvec->end());
@@ -428,10 +420,13 @@ void handlePageSelect(const httplib::Request& req, httplib::Response& rsp)
 
     std::string data = jsdic.dump();
     std::string encryptedData = rsa_pri_encrypt(data);
-    jsdic["data"] = data;
-    jsdic["encrypteddata"] = encryptedData;
 
-    std::string s =jsdic.dump();
+    sendJsdic["status"] = jsdic["status"];
+    sendJsdic["data"] = data;
+    sendJsdic["encrydata"] = encryptedData;
+    
+    std::string s = sendJsdic.dump();
+//    std::cout<<"stding="<<s<<std::endl;
     rsp.set_content(s, "application/json");
 
 }
@@ -480,18 +475,27 @@ std::string rsa_pri_encrypt(std::string data)
     //generate sha256 hash
     unsigned char shaStr[33] = {0};
     SHA256((const unsigned char *)data.c_str(), data.length(), shaStr);
-    std::string encodedStr = std::string((const char *)shaStr);
+    std::string encodedStr = Base64Encode((const char *)shaStr, sizeof(shaStr));
+    
+    std::cout<<"sha256="<<encodedStr<<std::endl;
+
+    if (private_key == "" || public_key == "") {
+        generate_rsa_keypair(); 
+    }
 
     //private key encrypt
+    RSA *rsa = NULL;
     BIO *keybio = BIO_new_mem_buf((unsigned char *)private_key.c_str(), -1);
-    RSA *rsa = PEM_read_bio_RSAPrivateKey(keybio, &rsa, NULL, NULL);
+    rsa = PEM_read_bio_RSAPrivateKey(keybio, &rsa, NULL, NULL);
 
     int len = RSA_size(rsa);
     char *encryptedText = (char*) malloc(len+1);
     memset(encryptedText, 0, len + 1);
 
     int ret = RSA_private_encrypt(encodedStr.length(), (const unsigned char*)encodedStr.c_str(), (unsigned char*)encryptedText, rsa, RSA_PKCS1_PADDING);
-    std::string encryptedStr = encryptedText;
+    std::string encryptedStr = Base64Encode((const char*)encryptedText, 128);
+    std::cout<<encryptedStr<<std::endl;
+
 
     BIO_free_all(keybio);
     free(encryptedText);
@@ -499,3 +503,89 @@ std::string rsa_pri_encrypt(std::string data)
 
     return encryptedStr;
 }
+
+void generate_rsa_keypair()
+{
+    RSA *keypair = RSA_generate_key(KEY_LENGTH, RSA_3, NULL, NULL);
+
+    char *pri_key = NULL;
+    char *pub_key = NULL;
+
+    BIO *pri = BIO_new(BIO_s_mem());
+    BIO *pub = BIO_new(BIO_s_mem());
+
+
+    PEM_write_bio_RSAPrivateKey(pri, keypair, NULL, NULL, 0, NULL, NULL);
+    PEM_write_bio_RSA_PUBKEY(pub, keypair);
+
+    size_t pri_len = BIO_pending(pri);
+    size_t pub_len = BIO_pending(pub);
+
+    pri_key = (char*) malloc(pri_len +1);
+    pub_key = (char*) malloc(pub_len +1);
+
+    BIO_read(pri, pri_key, pri_len);
+    BIO_read(pub, pub_key, pub_len);
+
+    pri_key[pri_len] = '\0';
+    pub_key[pub_len] = '\0';
+
+    //设置全局变量
+    private_key = pri_key;
+    public_key = pub_key;
+    std::cout<<private_key<<std::endl;
+
+
+    RSA_free(keypair);
+    BIO_free_all(pub);
+    BIO_free_all(pri);
+    free(pri_key); 
+    free(pub_key);
+
+    return;
+}
+
+//base64格式封装
+char *Base64Encode(const char *input, int len)
+{
+    BIO *bmem = NULL;
+    BIO *b64 = NULL;
+    BUF_MEM *bptr = NULL;
+
+    b64 = BIO_new(BIO_f_base64());
+    BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);
+
+    bmem = BIO_new(BIO_s_mem());
+    b64 = BIO_push(b64, bmem);
+    BIO_write(b64, input, len); 
+    BIO_flush(b64);
+    BIO_get_mem_ptr(b64, &bptr);
+
+    char *buf = (char *) malloc(bptr->length+1);
+    memcpy(buf, bptr->data, bptr->length);
+    buf[bptr->length] = 0;
+
+    BIO_free_all(b64);
+
+    return buf;
+}
+
+//base64格式解封装
+char *Base64Decode(const char *input, int len)
+{
+    BIO *b64 = NULL;
+    BIO *bmem = NULL;
+    char *buf = (char *)malloc(len);
+    memset(buf, 0, len);
+
+    b64 = BIO_new(BIO_f_base64());
+    BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);
+
+    bmem = BIO_new_mem_buf(input, len);
+    bmem = BIO_push(b64, bmem);
+    BIO_read(bmem, buf, len);
+
+    BIO_free_all(bmem);
+    return buf;
+}
+
